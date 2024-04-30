@@ -17,6 +17,8 @@ def add_contact(args, contacts) -> str:
     if len(args) != 2:
         return "Invalid command usage. Correct usage: add [name] [phone]"
     name, phone = args
+    if name in contacts:
+        return "Такий контакт вже є. Спробуйте інше ім'я."
     contacts[name] = phone
     return f"Contact {name} added with number {phone}."
 
