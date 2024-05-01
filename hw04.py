@@ -1,15 +1,20 @@
-def parse_input(user_input) -> tuple:
+from typing import List, Tuple
+
+
+def parse_input(user_input: str) -> Tuple[str, List[str]]:
     """Parses the user input and returns the command and arguments.
 
     Args:
         user_input (str): The user input to be parsed.
 
     Returns:
-        tuple: A tuple containing the command (str) and arguments (list).
+        tuple[str, list]: A tuple containing the command (str) and arguments (list).
 
     """
+    if not user_input.split():
+        return "Please enter a command:", []
     cmd, *args = user_input.split()
-    cmd = cmd.strip().lower()
+
     return cmd, args
 
 def add_contact(args, contacts) -> str:
@@ -18,7 +23,7 @@ def add_contact(args, contacts) -> str:
         return "Invalid command usage. Correct usage: add [name] [phone]"
     name, phone = args
     if name in contacts:
-        return "Такий контакт вже є. Спробуйте інше ім'я."
+        return "This contact already exists. Please use the change command to update the phone number."
     contacts[name] = phone
     return f"Contact {name} added with number {phone}."
 
