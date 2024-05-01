@@ -5,8 +5,6 @@ def fibonacci_generator():
     Yields:
         int: The next number in the Fibonacci sequence.
 
-
-
     """
     a, b = 0, 1
     while True:
