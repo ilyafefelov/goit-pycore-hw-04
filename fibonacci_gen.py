@@ -12,7 +12,7 @@ def fibonacci_generator():
         yield a
         a, b = b, a + b
 
-def get_fibonacci_numbers():
+def get_fibonacci_numbers():  
     """
     Generates Fibonacci numbers based on user input.
 
